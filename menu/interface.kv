@@ -1,0 +1,73 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+BoxLayout:
+    orientation: 'horizontal'
+    
+    # Menu Lateral Fixo
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.2
+        padding: 10
+        spacing: 10
+        Button:
+            text: "Tela Inicial"
+            on_release:
+                app.root.ids.screen_manager.current = 'tela_inicial'
+        Button:
+            text: "Tela 1"
+            on_release:
+                app.root.ids.screen_manager.current = 'tela1'
+        Button:
+            text: "Tela 2"
+            on_release:
+                app.root.ids.screen_manager.current = 'tela2'
+        Button:
+            text: "Tela 3"
+            on_release:
+                app.root.ids.screen_manager.current = 'tela3'
+        Button:
+            text: "Sair"
+            on_release:
+                app.stop()
+    
+    # Área de conteúdo (telas) gerenciada pelo ScreenManager
+    ScreenManager:
+        id: screen_manager
+        transition: FadeTransition()
+
+        TelaInicial:
+            name: 'tela_inicial'
+        Tela1:
+            name: 'tela1'
+        Tela2:
+            name: 'tela2'
+        Tela3:
+            name: 'tela3'
+
+<TelaInicial>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: "Bem-vindo à Tela Inicial"
+            font_size: 32
+
+<Tela1>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: "Conteúdo da Tela 1"
+            font_size: 32
+
+<Tela2>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: "Conteúdo da Tela 2"
+            font_size: 32
+
+<Tela3>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: "Conteúdo da Tela 3"
+            font_size: 32
