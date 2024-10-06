@@ -1,0 +1,46 @@
+<TelaList>:
+    name: 'tela_list'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: 'Lista de Itens'
+
+        ScrollView:
+            BoxLayout:
+                id: container
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+
+        Button:
+            text: 'Voltar para o Menu'
+            on_release:
+                app.root.current = 'menu'
+
+<ListItem>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: 40
+    spacing: 10
+
+    Label:
+        id: item_label
+        text: ''
+
+    TextInput:
+        id: editar_input
+        hint_text: 'Editar Item'
+        multiline: False
+
+    Button:
+        text: 'Salvar'
+        on_release:
+            root.editar(editar_input.text)
+
+    Button:
+        text: 'Remover'
+        on_release:
+            app.root.get_screen('tela_list').remover_item(item_label.text)

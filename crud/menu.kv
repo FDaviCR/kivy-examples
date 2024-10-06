@@ -1,0 +1,31 @@
+BoxLayout:
+    orientation: 'horizontal'
+
+    # Menu lateral
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.2
+        padding: 10
+        spacing: 10
+
+        Button:
+            text: 'Adicionar Item'
+            on_release:
+                app.root.current = 'tela_add'  # Navega para TelaAdd
+
+        Button:
+            text: 'Listar Itens'
+            on_release:
+                app.root.current = 'tela_list'  # Navega para TelaList
+
+        Button:
+            text: 'Sair'
+            on_release:
+                app.stop()
+
+    # Área de conteúdo, gerenciada pelo ScreenManager
+    ScreenManager:
+        id: screen_manager
+
+        TelaAdd:
+        TelaList:

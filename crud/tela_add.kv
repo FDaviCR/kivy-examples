@@ -1,0 +1,23 @@
+<TelaAdd>:
+    name: 'tela_add'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: 'Adicionar Novo Item'
+
+        TextInput:
+            id: nome_input
+            hint_text: 'Nome do Item'
+
+        Button:
+            text: 'Adicionar'
+            on_release:
+                root.adicionar_item(nome_input.text)
+
+        Button:
+            text: 'Voltar para o Menu'
+            on_release:
+                app.root.current = 'menu'
